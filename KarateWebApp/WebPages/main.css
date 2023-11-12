@@ -1,0 +1,72 @@
+﻿body {
+    padding: 2;
+    margin: 2;
+    background-color: tan;
+}
+
+.navbar {
+    background-color: tan;
+}
+
+.nav-link,
+.navbar-brand {
+    color: white;
+    cursor: pointer;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+}
+
+.nav-link:hover {
+    color: #000;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+.header {
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    background-color: tan;
+}
+.page-footer {
+    background-color: #6b696b;
+    color: tan;
+    padding: 60px 0 30px;
+}
+
+.footer-copyright {
+    color: #6b696b;
+    padding: 40px 0;
+}
+
+
+
+#Member {
+    width: 500px;
+    height: 400px;
+    position: relative;
+    z-index: 10;
+}
+
+#image {
+    top: 100%;
+    left: 100%;
+    right: 100%;
+    bottom: 100%;
+    position: absolute;
+}
+
+div.header {
+    background-image: url('image.jpg');
+}
