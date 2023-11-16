@@ -115,6 +115,7 @@
     <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="MembersKR\memberspage.aspx" />
     <Content Include="obj\Debug\KarateWebApp.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\KarateWebApp.dll" />
     <Content Include="obj\Debug\KarateWebApp.pdb" />
@@ -258,6 +259,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>KarateDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MembersKR\memberspage.aspx.cs">
+      <DependentUpon>memberspage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembersKR\memberspage.aspx.designer.cs">
+      <DependentUpon>memberspage.aspx</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
