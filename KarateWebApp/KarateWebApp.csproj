@@ -73,6 +73,7 @@
       <DependentUpon>KarateSchool.mdf</DependentUpon>
     </Content>
     <Content Include="Images\image.jpg" />
+    <Content Include="WebPages\Administrator.aspx" />
     <Content Include="WebPages\Instructor.aspx" />
     <Content Include="WebPages\Login.aspx" />
     <Content Include="WebPages\main.css" />
@@ -109,6 +110,13 @@
       <DependentUpon>KarateDB.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPages\Administrator.aspx.cs">
+      <DependentUpon>Administrator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\Administrator.aspx.designer.cs">
+      <DependentUpon>Administrator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebPages\Instructor.aspx.cs">
       <DependentUpon>Instructor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
