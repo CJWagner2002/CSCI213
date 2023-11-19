@@ -2,21 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Hello,
-<asp:LoginView ID="LoginView1" runat="server">
-</asp:LoginView>
-<br />
-<br />
-<asp:GridView ID="GridView1" runat="server" Width="848px" BackColor="White" BorderColor="#DEDFDE" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" BorderStyle="None">
-    <AlternatingRowStyle BackColor="White" />
-    <FooterStyle BackColor="#CCCC99" />
-    <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-    <RowStyle BackColor="#F7F7DE" />
-    <SelectedRowStyle BackColor="#CE5D5A" ForeColor="White" Font-Bold="True" />
-    <SortedAscendingCellStyle BackColor="#FBFBF2" />
-    <SortedAscendingHeaderStyle BackColor="#848384" />
-    <SortedDescendingCellStyle BackColor="#EAEAD3" />
-    <SortedDescendingHeaderStyle BackColor="#575357" />
+    <asp:GridView ID="GridView1" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+    <FooterStyle BackColor="#CCCCCC" />
+    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+    <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+    <RowStyle BackColor="White" />
+    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+    <SortedAscendingHeaderStyle BackColor="#808080" />
+    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+    <SortedDescendingHeaderStyle BackColor="#383838" />
 </asp:GridView>
 </asp:Content>
