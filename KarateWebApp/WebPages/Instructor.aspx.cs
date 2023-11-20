@@ -13,7 +13,7 @@ namespace KarateWebApp.WebPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string conn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\CJWag\\source\\repos\\CSCI213\\test4\\KarateWebApp\\App_Data\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
+            string conn = ConnectionStringHolder.connectionString;
 
             string queryString = @"
              SELECT 
