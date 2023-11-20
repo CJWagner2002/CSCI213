@@ -17,12 +17,16 @@
             font-size: xx-large;
         }
     </style>
+
+    <!-- jQuery -->
+    <script src="../Scripts/jquery-3.7.1.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
 
-    <nav class="navbar navebar-expand-sm nabbar-light bg-light">
+    <nav class="navbar navebar-expand-sm nabbar-light bg-light" style="margin-bottom: 15px;">
         <a href="#" class="navbar-brand mb-0 h1">
             <img src="../Images/image.jpg" height="64" alt="karate logo">
             <span class="auto-style1">Learn Karate</span>
@@ -71,7 +75,7 @@
         </div>
     </form>
 
-    <footer class="bg-dark text-white pt-5 pb-4 fixed-bottom">
+    <footer class="bg-dark text-white pt-5 pb-4" style="margin-top: 15px;">
         <div class="container text-center text-md-left">
             <div class="row text-center text-md-left">
                 <div class="col-md-3 col-lg-3 col-x1-3 mx-auto mt-3">
