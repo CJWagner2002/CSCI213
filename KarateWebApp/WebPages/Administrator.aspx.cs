@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,7 @@ namespace KarateWebApp.WebPages
 {
     public partial class Administrator : System.Web.UI.Page
     {
-        private string connectionString = ConnectionStringHolder.connectionString;
+        private string connectionString = ConfigurationManager.ConnectionStrings["KarateSchoolConnectionString"].ConnectionString;
 
         private void RefreshRecords()
         {

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace KarateWebApp.WebPages
 {
@@ -13,7 +14,7 @@ namespace KarateWebApp.WebPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string conn = ConnectionStringHolder.connectionString;
+            string conn = ConfigurationManager.ConnectionStrings["KarateSchoolConnectionString"].ConnectionString;
 
             /*
             string queryString = @"

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -12,7 +13,7 @@ namespace KarateWebApp.WebPages
 {
     public partial class Login : System.Web.UI.Page
     {
-        private string connectionString = ConnectionStringHolder.connectionString;
+        private string connectionString = ConfigurationManager.ConnectionStrings["KarateSchoolConnectionString"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
