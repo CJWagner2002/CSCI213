@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Web.Security;
 
 namespace KarateWebApp.WebPages
 {
@@ -53,8 +54,14 @@ namespace KarateWebApp.WebPages
                         instructorNameLabel.Text = "Hello, " + user.InstructorFirstName + " " + user.InstructorLastName;
 
                         var mySections = (from sections in dbcon.Sections
+                                          join members in dbcon.Members on sections.Member_ID equals members.Member_UserID
                                           where sections.Instructor_ID == Convert.ToInt32(Session["user_id"])
-                                          select sections);
+                                          select new
+                                          {
+                                                sections.SectionName,
+                                                members.MemberFirstName,
+                                                members.MemberLastName,
+                                          });
 
                         instructorSectionsGridView.DataSource = mySections;
                         instructorSectionsGridView.DataBind();
