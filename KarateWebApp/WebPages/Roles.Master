@@ -21,7 +21,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3 px-5">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light px-5">
         <div class="d-flex flex-row align-items-center">
             <a href="#" class="navbar-brand">
                 <img src="../Images/image.jpg" height="64" alt="karate logo">
@@ -61,13 +61,13 @@
     <!--<button class="mb-3 btn btn-lg btn-primary btn-block">Sign Up</button>-->
 
     <form id="form1" runat="server">
-        <div>
+        <div class="p-5">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
 
-    <footer class="bg-dark text-white pt-5 pb-4">
+    <footer class="bg-dark text-white pb-4">
         <div class="d-flex justify-content-center">
             <div class="w-75 text-center">
 

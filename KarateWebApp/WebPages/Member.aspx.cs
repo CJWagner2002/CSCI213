@@ -54,8 +54,16 @@ namespace KarateWebApp.WebPages
                         memberNameLabel.Text = "Hello, " + user.MemberFirstName + " " + user.MemberLastName;
 
                         var mySections = (from sections in dbcon.Sections
+                                          join instructors in dbcon.Instructors on sections.Instructor_ID equals instructors.InstructorID
                                           where sections.Member_ID == Convert.ToInt32(Session["user_id"])
-                                          select sections);
+                                          select new
+                                          {
+                                              sections.SectionName,
+                                              instructors.InstructorFirstName,
+                                              instructors.InstructorLastName,
+                                              PaymentDate = sections.SectionStartDate,
+                                              sections.SectionFee
+                                          });
 
                         memberSectionGridView.DataSource = mySections;
                         memberSectionGridView.DataBind();

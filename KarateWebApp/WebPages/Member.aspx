@@ -22,4 +22,16 @@
 
     Total Fees:<asp:Label ID="totalPaidLabel" runat="server" Text="$0.00"></asp:Label>
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 </asp:Content>
