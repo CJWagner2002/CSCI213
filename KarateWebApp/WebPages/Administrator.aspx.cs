@@ -16,7 +16,7 @@ namespace KarateWebApp.WebPages
         {
             using (var dbcon = new KarateDBDataContext(connectionString))
             {
-                var members =
+                var memberRecords =
                     from member in dbcon.Members
                     select new
                     {
@@ -26,10 +26,21 @@ namespace KarateWebApp.WebPages
                         DateJoined = member.MemberDateJoined
                     };
 
-                memberGridView.DataSource = members;
+                memberGridView.DataSource = memberRecords;
                 memberGridView.DataBind();
 
-                var instructors =
+                memberDDL.DataSource =
+                    from members in dbcon.Members
+                    select new
+                    {
+                        members.Member_UserID,
+                        MemberFullName = members.MemberFirstName+" "+members.MemberLastName,
+                    };
+                memberDDL.DataTextField = "MemberFullName";
+                memberDDL.DataValueField = "Member_UserID";
+                memberDDL.DataBind();
+
+                var instructorRecords =
                     from instructor in dbcon.Instructors
                     select new
                     {
@@ -37,8 +48,19 @@ namespace KarateWebApp.WebPages
                         LastName = instructor.InstructorLastName,
                     };
 
-                instructorGridView.DataSource = instructors;
+                instructorGridView.DataSource = instructorRecords;
                 instructorGridView.DataBind();
+
+                instructorDDL.DataSource =
+                    from instructors in dbcon.Instructors
+                    select new
+                    {
+                        instructors.InstructorID,
+                        InstructorFullName = instructors.InstructorFirstName+" "+instructors.InstructorLastName,
+                    };
+                instructorDDL.DataTextField = "InstructorFullName";
+                instructorDDL.DataValueField = "InstructorID";
+                instructorDDL.DataBind();
             };
         }
 
@@ -81,6 +103,7 @@ namespace KarateWebApp.WebPages
                     var toDelete = from members in dbcon.Members
                                    where members.MemberFirstName == e.Values["FirstName"].ToString()
                                    && members.MemberLastName == e.Values["LastName"].ToString()
+                                   && members.MemberPhoneNumber == e.Values["PhoneNumber"].ToString()
                                    select members;
 
                     dbcon.Members.DeleteOnSubmit(toDelete.FirstOrDefault());
@@ -152,6 +175,34 @@ namespace KarateWebApp.WebPages
             catch (Exception ex)
             {
                 statusLabel.Text = ex.Message;
+            }
+        }
+
+        protected void assignButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var dbcon = new KarateDBDataContext(connectionString))
+                {
+                    KarateWebApp.Section newSection = new KarateWebApp.Section
+                    {
+                        SectionName = sectionNameDDL.SelectedValue,
+                        SectionStartDate = sectionStartCalendar.SelectedDate,
+                        Member_ID = Convert.ToInt32(memberDDL.SelectedValue),
+                        Instructor_ID = Convert.ToInt32(instructorDDL.SelectedValue),
+                        SectionFee = Convert.ToDecimal(sectionFeeTextBox.Text),
+                    };
+
+                    dbcon.Sections.InsertOnSubmit(newSection);
+                    dbcon.SubmitChanges();
+                };
+
+                assignStatusLabel.Text = "Successful assignment!";
+                RefreshRecords();
+            }
+            catch (Exception ex)
+            {
+                assignStatusLabel.Text = ex.Message;
             }
         }
     }

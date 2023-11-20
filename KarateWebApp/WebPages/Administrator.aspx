@@ -25,9 +25,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="d-flex flex-row justify-content-center">
+    <div class="d-flex flex-row justify-content-center mx-3">
         <!-- TABLE COLUMN -->
-        <div class="d-flex flex-column justify-content-center">
+        <div class="d-flex flex-column justify-content-top p-2">
             <!-- MEMBERS TABLE -->
             <div class="p-2">
                 <h3 class="text-center">Members</h3>
@@ -75,67 +75,93 @@
         </div>
 
         <!-- INSERT FORM COLUMN -->
-        <div>
-            <div class="p-2">
-                <div class="d-flex flex-column justify-content-center">
+        <div class="d-flex flex-column justify-content-top p-2">
 
-                    <h4 class="text-center">Insert User</h4>
+            <h4 class="text-center">Insert User</h4>
 
-                    <hr class="hr" />
+            <hr class="hr" />
 
-                    <asp:DropDownList CssClass="mb-2" ID="userTypeDDL" runat="server">
-                        <asp:ListItem>Member</asp:ListItem>
-                        <asp:ListItem>Instructor</asp:ListItem>
-                    </asp:DropDownList>
+            <asp:Label ID="Label6" Text="User Type:" AssociatedControlID="userTypeDDL" runat="server"></asp:Label>
+            <asp:DropDownList CssClass="mb-2" ID="userTypeDDL" runat="server">
+                <asp:ListItem>Member</asp:ListItem>
+                <asp:ListItem>Instructor</asp:ListItem>
+            </asp:DropDownList>
 
-                    <asp:Label ID="usernameLabel" Text="Username:" AssociatedControlID="usernameTextBox" runat="server"></asp:Label>
-                    <asp:TextBox ID="usernameTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
+            <asp:Label ID="usernameLabel" Text="Username:" AssociatedControlID="usernameTextBox" runat="server"></asp:Label>
+            <asp:TextBox ID="usernameTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
 
-                    <asp:Label ID="passwordLabel" Text="Password:" AssociatedControlID="passwordTextBox" runat="server"></asp:Label>
-                    <asp:TextBox ID="passwordTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
+            <asp:Label ID="passwordLabel" Text="Password:" AssociatedControlID="passwordTextBox" runat="server"></asp:Label>
+            <asp:TextBox ID="passwordTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
 
-                    <asp:Label ID="firstNameLabel" Text="First Name:" AssociatedControlID="firstNameTextBox" runat="server"></asp:Label>
-                    <asp:TextBox ID="firstNameTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
+            <asp:Label ID="firstNameLabel" Text="First Name:" AssociatedControlID="firstNameTextBox" runat="server"></asp:Label>
+            <asp:TextBox ID="firstNameTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
 
-                    <asp:Label ID="lastNameLabel" Text="Last Name:" AssociatedControlID="lastNameTextBox" runat="server"></asp:Label>
-                    <asp:TextBox ID="lastNameTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
+            <asp:Label ID="lastNameLabel" Text="Last Name:" AssociatedControlID="lastNameTextBox" runat="server"></asp:Label>
+            <asp:TextBox ID="lastNameTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
 
-                    <asp:Label ID="dateJoinedLabel" Text="Date Joined:" AssociatedControlID="dateJoinedCalendar" runat="server"></asp:Label>
-                    <asp:Calendar ID="dateJoinedCalendar" runat="server" CssClass="mb-2" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="145px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="209px">
-                        <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
-                        <DayStyle Width="14%" />
-                        <NextPrevStyle Font-Size="8pt" ForeColor="White" />
-                        <OtherMonthDayStyle ForeColor="#999999" />
-                        <SelectedDayStyle BackColor="#CC3333" ForeColor="White" />
-                        <SelectorStyle BackColor="#CCCCCC" Font-Bold="True" Font-Names="Verdana" Font-Size="8pt" ForeColor="#333333" Width="1%" />
-                        <TitleStyle BackColor="Black" Font-Bold="True" Font-Size="13pt" ForeColor="White" Height="14pt" />
-                        <TodayDayStyle BackColor="#CCCC99" />
-                    </asp:Calendar>
+            <asp:Label ID="dateJoinedLabel" Text="Date Joined:" AssociatedControlID="dateJoinedCalendar" runat="server"></asp:Label>
+            <asp:Calendar ID="dateJoinedCalendar" runat="server" CssClass="mb-2" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="145px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="209px">
+                <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
+                <DayStyle Width="14%" />
+                <NextPrevStyle Font-Size="8pt" ForeColor="White" />
+                <OtherMonthDayStyle ForeColor="#999999" />
+                <SelectedDayStyle BackColor="#CC3333" ForeColor="White" />
+                <SelectorStyle BackColor="#CCCCCC" Font-Bold="True" Font-Names="Verdana" Font-Size="8pt" ForeColor="#333333" Width="1%" />
+                <TitleStyle BackColor="Black" Font-Bold="True" Font-Size="13pt" ForeColor="White" Height="14pt" />
+                <TodayDayStyle BackColor="#CCCC99" />
+            </asp:Calendar>
 
-                    <asp:Label ID="phoneNumberLabel" Text="Phone #:" AssociatedControlID="phoneNumberTextBox" runat="server"></asp:Label>
-                    <asp:TextBox ID="phoneNumberTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
+            <asp:Label ID="phoneNumberLabel" Text="Phone #:" AssociatedControlID="phoneNumberTextBox" runat="server"></asp:Label>
+            <asp:TextBox ID="phoneNumberTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
 
-                    <asp:Label ID="emailLabel" Text="Email:" AssociatedControlID="emailTextBox" runat="server"></asp:Label>
-                    <asp:TextBox ID="emailTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
+            <asp:Label ID="emailLabel" Text="Email:" AssociatedControlID="emailTextBox" runat="server"></asp:Label>
+            <asp:TextBox ID="emailTextBox" runat="server" CssClass="mb-2"></asp:TextBox>
 
-                    <asp:Button ID="insertButton" runat="server" Text="Submit" CssClass="btn btn-primary mt-2" OnClick="insertButton_Click" />
+            <asp:Button ID="insertButton" runat="server" Text="Submit" CssClass="btn btn-primary mt-2" OnClick="insertButton_Click" />
 
-                    <asp:Label ID="statusLabel" runat="server"></asp:Label>
+            <asp:Label ID="statusLabel" runat="server"></asp:Label>
 
-                </div>
-            </div>
         </div>
 
         <!-- SECTION ASSIGNMENT COLUMN -->
-        <div>
-            <div class="d-flex flex-column justify-content-center p-2">
-                <h4 class="text-center">Section Assignment</h4>
+        <div class="d-flex flex-column justify-content-top p-2">
+            <h4 class="text-center">Section Assignment</h4>
 
-                <hr class="hr" />
+            <hr class="hr" />
 
-                <asp:DropDownList CssClass="mb-2" ID="memberIDDDL" runat="server">
-                </asp:DropDownList>
-            </div>
+            <asp:Label ID="Label2" Text="Member:" AssociatedControlID="memberDDL" runat="server"></asp:Label>
+            <asp:DropDownList CssClass="mb-2" ID="memberDDL" runat="server">
+            </asp:DropDownList>
+
+            <asp:Label ID="Label1" Text="Instructor:" AssociatedControlID="instructorDDL" runat="server"></asp:Label>
+            <asp:DropDownList CssClass="mb-2" ID="instructorDDL" runat="server">
+            </asp:DropDownList>
+
+            <asp:Label ID="Label4" Text="Section Name:" AssociatedControlID="sectionNameDDL" runat="server"></asp:Label>
+            <asp:DropDownList CssClass="mb-2" ID="sectionNameDDL" runat="server">
+                <asp:ListItem>Karate Age-Uke</asp:ListItem>
+                <asp:ListItem>Karate Chudan-Uke </asp:ListItem>
+            </asp:DropDownList>
+
+            <asp:Label ID="Label5" Text="Section Fee:" AssociatedControlID="sectionNameDDL" runat="server"></asp:Label>
+            <asp:TextBox ID="sectionFeeTextBox" runat="server" type="number" step="0.01" CssClass="mb-2"/>
+
+            <asp:Label ID="Label3" Text="Start Date:" AssociatedControlID="sectionStartCalendar" runat="server"></asp:Label>
+            <asp:Calendar ID="sectionStartCalendar" runat="server" CssClass="mb-2" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="145px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="209px">
+                <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
+                <DayStyle Width="14%" />
+                <NextPrevStyle Font-Size="8pt" ForeColor="White" />
+                <OtherMonthDayStyle ForeColor="#999999" />
+                <SelectedDayStyle BackColor="#CC3333" ForeColor="White" />
+                <SelectorStyle BackColor="#CCCCCC" Font-Bold="True" Font-Names="Verdana" Font-Size="8pt" ForeColor="#333333" Width="1%" />
+                <TitleStyle BackColor="Black" Font-Bold="True" Font-Size="13pt" ForeColor="White" Height="14pt" />
+                <TodayDayStyle BackColor="#CCCC99" />
+            </asp:Calendar>
+
+            <asp:Button ID="assignButton" runat="server" Text="Assign" CssClass="btn btn-primary mt-2" OnClick="assignButton_Click" />
+
+            <asp:Label ID="assignStatusLabel" runat="server"></asp:Label>
+
         </div>
 
     </div>
