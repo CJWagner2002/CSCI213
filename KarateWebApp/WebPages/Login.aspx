@@ -36,7 +36,7 @@
 
         <div class="mb-3">
             <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-            <asp:TextBox ID="passwordTextBox" placeholder="********" class="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="passwordTextBox" placeholder="********" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
         </div>
 
         <div>
