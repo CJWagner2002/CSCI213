@@ -13,6 +13,14 @@
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 
+    <!-- Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="../Scripts/jquery-3.7.1.js"></script>
+
     <title>Karate Web Page</title>
     <style type="text/css">
         .auto-style1 {
@@ -20,15 +28,19 @@
         }
     </style>
 
+
+
 </head>
 <body>
 
-    <form style="max-width: 256px; margin: auto; margin-top: 60px;" runat="server">
-        <div class="text-center">
-            <img src="../Images/image.jpg" height="128" alt="karate logo" />
+    <form style="max-width: 256px; margin: auto; margin-top: 100px;" runat="server">
+        <div class="text-center mb-3">
+            <img src="../Images/image.jpg" height="180" alt="karate logo" />
         </div>
-        <h2 class="h3 mb-3 fornt-weight-normal text-center">Please log in</h2>
 
+        <!--<h2 class="h3 mb-3 fornt-weight-normal text-center">Please log in</h2>-->
+
+        <!--
         <div class="mb-3">
             <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
             <asp:TextBox ID="userameTextBox" CssClass="form-control" placeholder="john.doe" runat="server"></asp:TextBox>
@@ -40,14 +52,16 @@
         </div>
 
         <div>
-            <asp:Button ID="Button1" runat="server" Text="Login" CssClass="btn btn-block w-100 btn-primary" OnClick="Button1_Click"/>
+            <asp:Button ID="Button1" runat="server" Text="Login" CssClass="btn btn-block w-100 btn-primary" OnClick="Button1_Click" />
         </div>
-    </form>
+        -->
 
-    <!-- Separate Popper and Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
+        <asp:Login ID="Login1" runat="server" DisplayRememberMe="False" LoginButtonText="Login" OnAuthenticate="Login1_Authenticate" TextLayout="TextOnTop" TitleText="" DestinationPageUrl="~/WebPages/Member.aspx" UserNameLabelText="Username:" UserNameRequiredErrorMessage="Username is required.">
+            <LoginButtonStyle CssClass="btn btn-block w-100 btn-primary" />
+            <TextBoxStyle CssClass="form-control" />
+        </asp:Login>
+
+    </form>
 
 </body>
 </html>

@@ -66,6 +66,10 @@ namespace KarateWebApp.WebPages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user_id"] == null || Convert.ToInt32(Session["user_id"]) != -1)
+            {
+                Response.Redirect("Login.aspx");
+            }
             RefreshRecords();
         }
 

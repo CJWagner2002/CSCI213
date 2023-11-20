@@ -15,6 +15,7 @@ namespace KarateWebApp.WebPages
         {
             string conn = ConnectionStringHolder.connectionString;
 
+            /*
             string queryString = @"
              SELECT 
                 Section.SectionName, 
@@ -33,6 +34,35 @@ namespace KarateWebApp.WebPages
 
                 GridView1.DataSource = dataTable;
                 GridView1.DataBind();
+            }
+            */
+
+            using (var dbcon = new KarateDBDataContext(conn))
+            {
+                if (Session["user_id"] != null && (int) Session["user_id"] > 0)
+                {
+                    // look for instructor
+                    var user = (from instructors in dbcon.Instructors
+                                where instructors.InstructorID == Convert.ToInt32(Session["user_id"])
+                                select instructors).FirstOrDefault();
+
+                    // instructor found; show data
+                    if (user != null)
+                    {
+                        instructorNameLabel.Text = "Hello, " + user.InstructorFirstName + " " + user.InstructorLastName;
+
+                        var mySections = (from sections in dbcon.Sections
+                                          where sections.Instructor_ID == Convert.ToInt32(Session["user_id"])
+                                          select sections);
+
+                        instructorSectionsGridView.DataSource = mySections;
+                        instructorSectionsGridView.DataBind();
+                    }
+                }
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
     }

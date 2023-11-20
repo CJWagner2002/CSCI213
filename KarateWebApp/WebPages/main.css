@@ -12,6 +12,7 @@
 .navbar-brand {
     color: white;
     cursor: pointer;
+    padding-top: 5px;
 }
 
 .nav-link {

@@ -41,5 +41,35 @@ namespace KarateWebApp.WebPages
                 }
             };
         }
+
+        private string ValidateUser(string username, string password)
+        {
+            if (username == "admin" && password == "Password") 
+            {
+                Session["user_id"] = -1;
+                return "Administrator";
+            }
+            using (var dbcon = new KarateDBDataContext(connectionString))
+            {
+                var user = (from netUser in dbcon.NetUsers
+                           where netUser.UserName == username && netUser.UserPassword == password
+                           select netUser).FirstOrDefault();
+
+                Session["user_id"] = user.UserID;
+                return user.UserType;
+            };
+        }
+
+        protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
+        {
+            string userType = ValidateUser(Login1.UserName, Login1.Password);
+            if (userType == null)
+            {
+                e.Authenticated = false;
+                return;
+            }
+
+            Response.Redirect($"{userType}.aspx");
+        }
     }
 }
