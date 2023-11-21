@@ -67,7 +67,21 @@ namespace KarateWebApp.WebPages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user_id"] == null || Convert.ToInt32(Session["user_id"]) != -1)
+            if (Session["user_id"] != null)
+            {
+                using (var dbcon = new KarateDBDataContext(connectionString))
+                {
+                    var user = (from netUser in dbcon.NetUsers
+                                where netUser.UserID == (int) Session["user_id"]
+                                select netUser).FirstOrDefault();
+
+                    if (user.UserType != "Administrator")
+                    {
+                        Response.Redirect("Login.aspx");
+                    };
+                };
+            }
+            else
             {
                 Response.Redirect("Login.aspx");
             }
